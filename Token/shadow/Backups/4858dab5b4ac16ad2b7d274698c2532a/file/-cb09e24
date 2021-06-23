@@ -1,0 +1,35 @@
+file:///home/Token/src/test.html {"mtime":1624026078132,"ctime":1624026078132,"size":403,"etag":"3747ks66rd0","orphaned":false,"typeId":""}
+<!DOCTYPE html>
+<html>
+<head>
+<title>CarbonToken Test</title>
+<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+<!--<script src=app.js></script>-->
+<script src=truffle-contract.js></script>
+<script src=web3.min.js></script>
+<script>
+A={
+a:function(){
+
+return A.b();
+
+},
+
+b:function(){
+
+    $(window).on('click','#SubmitAdress',function(){
+        alert($('#AddressInput').val());
+        })
+    }
+};
+A
+</script>
+</head>
+<body>
+<p>Adress: </p><input type=text  id="AddressInput" >
+<p id="Balance">Balance : </p>
+<button type="button" id="SubmitAdress">
+
+</body>
+
+</html>

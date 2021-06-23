@@ -1,0 +1,123 @@
+<!--
+ * @Author: kok-s0s
+ * @Date: 2021-06-22 00:17:07
+ * @LastEditors: kok-s0s
+ * @LastEditTime: 2021-06-22 17:40:51
+ * @Description: 页面编写
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CarbonToken Test</title>
+    <style type="text/css">
+        body {
+            background-color: #fffff1;
+            width: 600px;
+            margin: 0 auto;
+            padding: 70px 20px 20px 20px;
+            font-family: serif;
+        }
+
+        .container {
+            width: auto;
+            height: auto;
+            align-items: center;
+            text-align: center;
+            border: 3px solid #555555;
+            padding: 5px 10px 20px 10px;
+        }
+
+        .title {
+            font-size: 50px;
+        }
+
+        .subtitle {
+            text-align: left;
+            font-size: 30px;
+        }
+
+        fieldset {
+            border: 0;
+            border-top: 2px solid #444444;
+        }
+
+        .content {
+            text-align: left;
+        }
+
+        #NewAddress {
+            background-color: #ddd;
+        }
+
+        #Balance {
+            background-color: #ddd;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="title">
+            碳代币
+        </div>
+        <fieldset>
+        </fieldset>
+        <div class="creatAcount">
+            <div class="subtitle">创建账户</div>
+            <div>
+                <div class="content">
+                    <label>请输入密码以获取账户</label>
+                    <input type="password" id="Passwd" value="123456">
+                    <button id="NewAccount">点击生成账户</button>
+                    <br>
+                    <label>生成的账户地址如下：</label>
+                    <div id="NewAddress"></div>
+                </div>
+            </div>
+            <fieldset>
+            </fieldset>
+            <div class="subtitle">账户查询</div>
+            <div>
+                <div class="content">
+                    <label>请输入账户地址获取账户余额</label>
+                    <input type="text" id="AddressInput" value="复制上面地址粘贴至此">
+                    <button id="SubmitAddress">点击查询</button>
+                    <br>
+                    <label>账户余额如下：</label>
+                    <div id="Balance"></div>
+                </div>
+            </div>
+            <fieldset>
+            </fieldset>
+            <div class="subtitle">简单交易</div>
+            <div>
+                <div class="content">
+                    <label>支付方地址</label>
+                    <input type="text" id="FromInput" value="复制上面地址粘贴至此">
+                    <br>
+                    <label>支付方密码</label>
+                    <input type="password" id="Passwd2">
+                    <br>
+                    <label>收款人地址</label>
+                    <input type="text" id="ToInput">
+                    <br>
+                    <label>交易金额</label>
+                    <input type="number" id="AmountInput">
+                    <br>
+                    <button id="Transfer">点击交易</button>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+<script src="web3.min.js"></script>
+<script src="truffle-contract.js"></script>
+<script src="app.js"></script>
+
+</html>

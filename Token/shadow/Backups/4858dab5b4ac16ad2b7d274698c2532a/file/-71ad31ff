@@ -1,0 +1,81 @@
+file:///home/Token/src/app.js {"mtime":1624029535195,"ctime":1624029535195,"size":1516,"etag":"3747porq01hs","orphaned":false,"typeId":""}
+App = {
+
+    web3Provider: null,
+
+    contracts: {},
+  
+    init: function() {
+      return App.initWeb3();
+    },
+  
+    initWeb3: function() {
+
+      if (typeof web3 !== 'undefined') {
+
+        App.web3Provider = web3.currentProvider;
+        web3 = new Web3(web3.currentProvider);
+      } else {
+
+        App.web3Provider = new Web3.providers.HttpProvider('http://127.0.0.1:7545');
+        web3 = new Web3(App.web3Provider);
+      }
+  
+      return App.initContract();
+    },
+  
+    initContract: function() {
+      $.getJSON('CarbonToken.json', function(data) {
+        
+        var CarbonTokenArtifact = data;
+
+        App.contracts.CarbonToken = TruffleContract(CarbonTokenArtifact);
+  
+        
+        App.contracts.CarbonToken.setProvider(App.web3Provider);
+  
+      });
+  
+      return App.bindEvents();
+    },
+  
+    bindEvents: function() {
+        $(window).on('click','#SubmitAdress',Test);
+    },
+
+    Test:function(){
+        alert($('#AddressInput').val());
+    },
+
+    GetAddressBalance:function(){
+        
+        var Address=$('#AddressInput').val();
+
+        App.contracts.CarbonToken.deployed().then(function(instance){
+
+            CarbonTokenInstance=instance;
+
+            return CarbonTokenInstance.balanceOf(address);
+
+        }).then(function(res){
+
+            $('#Balance').text('Balance : '+res.c[0]);
+
+        }) .catch(function(err) {
+
+            console.log(err.message);
+
+          });
+    }
+};
+
+
+$(function() {
+    $(window).load(function() {
+
+
+        
+      App.bindEvents();
+
+    });
+});
